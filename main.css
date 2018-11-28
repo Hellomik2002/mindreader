@@ -1,0 +1,31 @@
+#o{
+    color: aqua;
+}
+#output_of_1_letter {
+    width: 5%;
+    height: 5%;
+    background-color: rgba(188,198,187, 0.6);
+    color: black;
+}
+html{
+    width:100%;
+    height: 100%;
+}
+body {
+    width:99%;
+    height: 96%;    
+}
+#general_text {
+    background-color: rgba(116, 171, 175, 0.678);
+    position: absolute;
+    width: 85%;
+    min-height: 5%;
+    right: 7%;
+    bottom: 5%;
+}
+#ch_correct{
+    visibility:hidden;
+}
+#ch_wrong{
+    visibility:hidden;
+}

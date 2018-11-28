@@ -1,0 +1,63 @@
+ <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <input id = "Start_1" type="button" value = "Start">  
+    <input id = "ch_correct" type="button" value = "Correct">
+    <input id = "ch_wrong" type="button" value = "Wrong">
+    <div id = "output_of_1_letter"> <div>
+    <div id = "general_text">  </div>
+    
+    <script>
+        //input
+        const electron = require("electron");
+        const {ipcRenderer} = electron;
+        
+        const letdoit = document.getElementById("Start_1");
+        const btn_true = document.getElementById("ch_correct");
+        const btn_false = document.getElementById("ch_wrong");
+        
+        
+        btn_true.addEventListener("click", function(){
+            ipcRenderer.send("button_click1", 1);
+        });
+        btn_false.addEventListener("click", function(){
+            ipcRenderer.send("button_click1", 0);
+            btn_false.style.visibility = "hidden";
+            btn_true.style.visibility = "hidden";    
+        });
+        letdoit.addEventListener("click", function(){
+            ipcRenderer.send("run_0");
+            btn_false.style.visibility = "hidden";
+            btn_true.style.visibility = "hidden";
+        });
+        
+        
+    </script>    
+    <script>
+        //output
+        const out_lett = document.getElementById("general_text");
+        const popdata = document.getElementById("output_of_1_letter");
+        
+        ipcRenderer.on("wordic", function(e, answord) {
+        out_lett.innerText = answord;
+        btn_false.style.visibility = "visible";
+        btn_true.style.visibility = "visible";
+        
+        }); 
+        
+        
+        ipcRenderer.on("get_text", function(e, answord1) {
+            $("output_of_1_letter").update(answord1);
+        }); 
+
+    </script>
+</body>
+</html>

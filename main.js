@@ -7,7 +7,7 @@ var	util = require('util');
 
 var mass = [[],[],[],[],[]];
 var mass_way;
-var words = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z", "_", "%"];
+var words = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z", "%"];
 let win;
 
 const {app, BrowserWindow, Menu, ipcMain} = electron;
